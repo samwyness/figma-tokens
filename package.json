@@ -1,0 +1,67 @@
+{
+  "name": "@slab/figma-tokens",
+  "version": "0.0.0-development",
+  "description": "Turn Figma design tokens into code",
+  "license": "MIT",
+  "author": "Sam Wyness",
+  "homepage": "https://github.com/samwyness/figma-tokens#readme",
+  "bugs": "https://github.com/samwyness/figma-tokens/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samwyness/figma-tokens.git"
+  },
+  "keywords": [
+    "Figma",
+    "Figma Tokens",
+    "Design Tokens",
+    "slab"
+  ],
+  "scripts": {
+    "clean": "rimraf ./lib",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "start": "tsc --watch",
+    "build": "npm run clean && tsc",
+    "dev": "node lib/cli.js",
+    "release": "semantic-release"
+  },
+  "dependencies": {
+    "ajv": "^8.6.2",
+    "axios": "^0.21.4",
+    "chalk": "^4.1.2",
+    "color-convert": "^2.0.1",
+    "commander": "^8.1.0",
+    "dotenv": "^10.0.0",
+    "js-yaml": "^4.1.0",
+    "ora": "^5.4.1",
+    "prompts": "^2.4.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "@types/color-convert": "^2.0.0",
+    "@types/js-yaml": "^4.0.3",
+    "@types/node": "^16.7.10",
+    "@types/prompts": "^2.0.14",
+    "cross-env": "^7.0.3",
+    "husky": "^7.0.2",
+    "prettier": "^2.3.2",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.4.2",
+    "semantic-release": "^17.4.7"
+  },
+  "main": "./src/cli.ts",
+  "bin": {
+    "sw-tokens": "./bin/figma-tokens.js"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "release": {
+    "dryRun": true,
+    "branches": [
+      "main",
+      "next"
+    ]
+  }
+}
