@@ -1,3 +1,20 @@
+## [1.1.0](https://github.com/samwyness/figma-tokens/compare/v1.0.0...v1.1.0) (2021-09-14)
+
+
+### :vertical_traffic_light: CI
+
+* rename test workflow ([ccb8796](https://github.com/samwyness/figma-tokens/commit/ccb8796dd5e7809bf7627fdd210709dde7626755))
+
+
+### :rocket: Features
+
+* add skits-tokens command ([c21241a](https://github.com/samwyness/figma-tokens/commit/c21241a0d982f93251da519862a757ddf42214e2))
+
+
+### :books: Documentation
+
+* initial documentation for v1 ([658199e](https://github.com/samwyness/figma-tokens/commit/658199ea0b6a6b97aa7dec6b4ed3c3afbfd54bf3))
+
 # 1.0.0 (2021-09-14)
 
 
