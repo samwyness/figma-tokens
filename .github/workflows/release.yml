@@ -20,6 +20,7 @@ jobs:
       - run: npm ci
       - run: npm run build --if-present
       # - run: npm test
+      - run: npm whoami
       - run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
