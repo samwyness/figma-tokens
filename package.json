@@ -1,5 +1,5 @@
 {
-  "name": "@slab/figma-tokens",
+  "name": "@skits/figma-tokens",
   "version": "0.0.0-development",
   "description": "Turn Figma design tokens into code",
   "license": "MIT",

@@ -1,1 +1,1 @@
-# figma-tokens
+# @skits/figma-tokens
