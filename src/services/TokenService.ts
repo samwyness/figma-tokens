@@ -134,10 +134,10 @@ export default class TokenService {
     }
   }
 
-  createTokensFile(outputType: OutputType = 'flat') {
-    log.debug(`outputType: ${outputType}`)
+  createTokensFile(outputTransform: OutputTransform = 'flat') {
+    log.debug(`outputTransform: ${outputTransform}`)
 
-    switch (outputType) {
+    switch (outputTransform) {
       case 'flat':
         this.writeTokensToJSONFile(this.flatTokens)
         break

@@ -26,7 +26,7 @@ export const sync = async () => {
       // Sync tokens
       await boardService.loadBoard()
       boardService.buildTokens()
-      boardService.tokens.createTokensFile(tokensConfig.outputType)
+      boardService.tokens.createTokensFile(tokensConfig.outputTransform)
     } else {
       throw log.messages.tokensConfigGeneric
     }

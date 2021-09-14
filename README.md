@@ -52,7 +52,7 @@ e.g.
 ```yml
 fileId: <FIGMA_FILE_ID>
 outputFilename: tokens
-outputType: group
+outputTransform: group
 tokenFrames:
   - colors
   - typography
