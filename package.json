@@ -58,6 +58,7 @@
     "lib"
   ],
   "bin": {
+    "skits-tokens": "./bin/figma-tokens.js",
     "sw-tokens": "./bin/figma-tokens.js"
   },
   "engines": {
