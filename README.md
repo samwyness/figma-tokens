@@ -2,7 +2,7 @@
 
 Generate Design Tokens from your Figma Files
 
-[![Build Status](https://github.com/samwyness/figma-tokens/actions/workflows/test.yml/badge.svg)](https://github.com/samwyness/figma-tokens/actions?query=workflow:Test+branch:main) [![npm latest version](https://img.shields.io/npm/v/@skits/figma-tokens/latest.svg)](https://www.npmjs.com/package/@skits/figma-tokens)
+[![Build Status](https://github.com/skits-lab/figma-tokens/actions/workflows/test.yml/badge.svg)](https://github.com/skits-lab/figma-tokens/actions?query=workflow:Test+branch:main) [![npm latest version](https://img.shields.io/npm/v/@skits/figma-tokens/latest.svg)](https://www.npmjs.com/package/@skits/figma-tokens)
 
 ## Install
 

@@ -4,11 +4,11 @@
   "description": "Turn Figma design tokens into code",
   "license": "MIT",
   "author": "Sam Wyness",
-  "homepage": "https://github.com/samwyness/figma-tokens#readme",
-  "bugs": "https://github.com/samwyness/figma-tokens/issues",
+  "homepage": "https://github.com/skits-lab/figma-tokens#readme",
+  "bugs": "https://github.com/skits-lab/figma-tokens/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/samwyness/figma-tokens.git"
+    "url": "https://github.com/skits-lab/figma-tokens.git"
   },
   "keywords": [
     "Figma",
