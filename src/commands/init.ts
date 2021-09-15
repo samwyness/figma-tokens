@@ -5,15 +5,7 @@ import yaml from 'js-yaml'
 import { CONFIG_FILENAME, DEFAULT_TOKENS_FILENAME } from '../utils/constants'
 import { log } from '../services/LogService'
 
-/**
- * Prompts:
- * 1. Figma API Token - Writes to .env
- * 2. Figma File ID
- * 3. Output filename - default: 'tokens'
- * 4. Frames - default: ['colors', 'typography', 'spacing']
- */
-
-const questions: PromptObject[] = [
+const questions: PromptObject<keyof TokensConfig>[] = [
   {
     type: 'text',
     name: 'fileId',
@@ -27,8 +19,8 @@ const questions: PromptObject[] = [
   },
   {
     type: 'select',
-    name: 'outputType',
-    message: 'Output type',
+    name: 'outputTransform',
+    message: 'Output transform',
     instructions: false,
     choices: [
       { title: 'Flat', value: 'flat' },

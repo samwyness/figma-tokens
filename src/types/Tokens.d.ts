@@ -1,23 +1,12 @@
-type OutputType = 'flat' | 'group' | 'array'
-
-// enum TokenFrames {
-//   Colors = 'colors',
-//   Typography = 'typography',
-//   Spacing = 'spacing',
-// }
+type OutputTransform = 'flat' | 'group' | 'array'
 
 type TokenFrames = 'colors' | 'typography' | 'spacing'
 
 interface TokensConfig {
   fileId: string
   outputFilename: string
-  outputType: OutputType
+  outputTransform: OutputTransform
   tokenFrames: TokenFrame[]
-}
-
-interface TokensConfigSchema extends TokensConfig {
-  outputType: string
-  tokenFrames: string[]
 }
 
 interface TokenData {

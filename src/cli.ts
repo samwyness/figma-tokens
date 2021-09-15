@@ -12,7 +12,7 @@ import { sync } from './commands/sync'
 export const start = () => {
   const program = new Command(PACKAGE_NAME)
 
-  program.version(PACKAGE_VERSION, '-v, --vers', 'output the current version')
+  program.version(PACKAGE_VERSION, '-v, --version', 'output the current version')
 
   program
     .command('info')
