@@ -1,3 +1,15 @@
+### [1.1.1](https://github.com/skits-lab/figma-tokens/compare/v1.1.0...v1.1.1) (2021-09-15)
+
+
+### :vertical_traffic_light: CI
+
+* **workflows:** add codeql-analysis workflow ([#3](https://github.com/skits-lab/figma-tokens/issues/3)) ([ed239e3](https://github.com/skits-lab/figma-tokens/commit/ed239e3dd7fb35c77948eae6792bbb64f7848d1d))
+
+
+### :bug: Bug Fixes
+
+* **config:** update configuration file schema to match docs ([#4](https://github.com/skits-lab/figma-tokens/issues/4)) ([1adfbcd](https://github.com/skits-lab/figma-tokens/commit/1adfbcd6571a073e1ddc13d49e68f3fb925ae69e))
+
 ## [1.1.0](https://github.com/skits-lab/figma-tokens/compare/v1.0.0...v1.1.0) (2021-09-14)
 
 ### :vertical_traffic_light: CI
