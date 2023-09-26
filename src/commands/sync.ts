@@ -2,10 +2,10 @@ import fs from 'fs'
 import yaml from 'js-yaml'
 import path from 'path'
 
-import { CONFIG_FILENAME } from '../utils/constants'
 import BoardService from '../services/BoardService'
 import { log } from '../services/LogService'
 import TokenService from '../services/TokenService'
+import { CONFIG_FILENAME } from '../utils/constants'
 
 // TODO: Use better logging for task - packages like 'ora' or 'listr'
 export const sync = async () => {

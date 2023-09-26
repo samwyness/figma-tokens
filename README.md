@@ -24,10 +24,11 @@ _Before building tokens make sure your project is configured properly - see setu
 
 ### API Token
 
-Create a `.env` file in your projects root directory and add your Figma API personal access token.
+Create a `.env` file in your projects root directory and add your Figma API personal access token and Figma file ID.
 
 ```json
-FIGMA_TOKEN="ABCDEFG1234567"
+FIGMA_FILE_ID="ABCDEFGH12345678"
+FIGMA_TOKEN="figd_ABCDEFGH12345678"
 ```
 
 _For more info on how to generate Figma personal access tokens, you can [follow this guide](https://www.figma.com/developers/api#access-tokens)_
@@ -42,7 +43,6 @@ You can run `npx skits-tokens init` and provide the requested details to generat
 
 | Option            | Description                                                                                                                                                          | Default  |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `fileId`          | Thie figma file that contains your tokens - You can copy the file's ID from your browser's address bar                                                               | -        |
 | `outputFileName`  | The name of the json file where the tokens should be generated - e.g the default value will create `tokens.json` file                                                | `tokens` |
 | `outputTransform` | When generating the tokens file, you can choose how you want the tokens to be transformed (examples coming soon). Available options are - `'flat', 'group', 'array'` | `flat`   |
 | `tokenFrames`     | A list of tokens frames that can be found in your Figma file. Currently supported token frames are - `'colors', 'typography', 'spacing'`                             | -        |
@@ -50,7 +50,6 @@ You can run `npx skits-tokens init` and provide the requested details to generat
 e.g.
 
 ```yml
-fileId: <FIGMA_FILE_ID>
 outputFilename: tokens
 outputTransform: group
 tokenFrames:

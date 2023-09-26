@@ -3,7 +3,6 @@ type OutputTransform = 'flat' | 'group' | 'array'
 type TokenFrames = 'colors' | 'typography' | 'spacing'
 
 interface TokensConfig {
-  fileId: string
   outputFilename: string
   outputTransform: OutputTransform
   tokenFrames: TokenFrame[]
