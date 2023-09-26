@@ -1,6 +1,6 @@
 {
   "name": "@skits/figma-tokens",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "description": "Turn Figma design tokens into code",
   "license": "MIT",
   "author": "Sam Wyness",

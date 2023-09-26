@@ -1,3 +1,20 @@
+## [2.0.0](https://github.com/skits-lab/figma-tokens/compare/v1.1.1...v2.0.0) (2023-09-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* **sync:** get Figma file ID from environment, removes `fileId` field from yaml config (#7)
+
+### :rocket: Features
+
+* **sync:** get Figma file ID from environment, removes `fileId` field from yaml config ([#7](https://github.com/skits-lab/figma-tokens/issues/7)) ([ede2a92](https://github.com/skits-lab/figma-tokens/commit/ede2a9284d7387d75598ab06414f6b08814321ea))
+
+
+### :vertical_traffic_light: CI
+
+* **release:** run on release workflow on node 16.x ([#8](https://github.com/skits-lab/figma-tokens/issues/8)) ([014bbfd](https://github.com/skits-lab/figma-tokens/commit/014bbfd635c5f4cd8d51a533680b758697f2f1e8))
+* **release:** use conventionalcommits preset for commit-analyzer plugin ([380c5fa](https://github.com/skits-lab/figma-tokens/commit/380c5fa4ed2a0e3d11368c3146db2f434093be87))
+
 ### [1.1.1](https://github.com/skits-lab/figma-tokens/compare/v1.1.0...v1.1.1) (2021-09-15)
 
 
