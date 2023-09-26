@@ -1,6 +1,7 @@
 import axios, { AxiosInstance } from 'axios'
-import { FIGMA_TOKEN } from '../utils/constants'
+import { FIGMA_FILE_ID, FIGMA_TOKEN } from '../utils/constants'
 import { log } from './LogService'
+import chalk from 'chalk'
 
 interface FigmaFileApiResponse {
   name: string
@@ -23,7 +24,8 @@ export default class FigmaApiService {
     })
   }
 
-  async getBoard(boardId: string) {
-    return await this.api.get<FigmaFileApiResponse>(`files/${boardId}`)
+  async getBoard(boardId?: string) {
+    log.info(`Loading Figma File with ID ${chalk.blue(FIGMA_FILE_ID)}`)
+    return await this.api.get<FigmaFileApiResponse>(`files/${boardId || FIGMA_FILE_ID}`)
   }
 }

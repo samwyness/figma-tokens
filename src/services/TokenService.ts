@@ -150,14 +150,9 @@ export default class TokenService {
     }
   }
 
+  // TODO:
   private validateConfigSchema() {
     let result: string | null = null
-
-    if (!this.config.fileId) {
-      result = `key 'fileId' is missing in ${CONFIG_FILENAME}`
-    } else if (typeof this.config.fileId !== 'string') {
-      result = `key 'fileId' in ${CONFIG_FILENAME} must be a string`
-    }
 
     log.debug(`Validating tokens config at '${CONFIG_FILENAME}'`)
     log.debug(`tokensConfig:`, this.config)

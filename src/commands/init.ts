@@ -8,11 +8,6 @@ import { log } from '../services/LogService'
 const questions: PromptObject<keyof TokensConfig>[] = [
   {
     type: 'text',
-    name: 'fileId',
-    message: 'Figma File ID',
-  },
-  {
-    type: 'text',
     name: 'outputFilename',
     message: 'Output filename',
     initial: DEFAULT_TOKENS_FILENAME,

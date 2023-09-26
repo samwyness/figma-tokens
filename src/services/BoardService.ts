@@ -2,10 +2,10 @@ import chalk from 'chalk'
 import ColorConvert from 'color-convert'
 
 import { TOKEN_FRAME_PREFIX } from '../utils/constants'
-import { toCamelCase } from '../utils/strings'
 import { floatToRgbInt } from '../utils/numbers'
-import { log } from './LogService'
+import { toCamelCase } from '../utils/strings'
 import FigmaApiService from './FigmaApiService'
+import { log } from './LogService'
 import TokenService from './TokenService'
 
 export default class BoardService {
@@ -33,15 +33,13 @@ export default class BoardService {
 
   public async loadBoard() {
     try {
-      log.info(`Loading Figma File with ID ${chalk.blue(this.tokensConfig.fileId)}`)
-
-      const { data } = await this.figmaApi.getBoard(this.tokensConfig.fileId)
+      const { data } = await this.figmaApi.getBoard()
 
       if (data.document) {
         log.debug(`Found Figma file - ${data.name}`)
         this.boardDocument = data.document
       } else {
-        throw new Error(log.messages.noDocumentFoundInFigmaFile(this.tokensConfig.fileId))
+        throw new Error(log.messages.noDocumentFoundInFigmaFile())
       }
     } catch (error) {
       log.error(error)

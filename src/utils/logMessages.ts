@@ -12,8 +12,7 @@ const invalidTokensConfig =
   `Invalid yaml config detected, please check that your './figma-tokens.yml' is correct, ` +
   needHelpWithTokensConfig
 
-const noDocumentFoundInFigmaFile = (fileId: string) =>
-  `No DOCUMENT found in Figma file ${chalk.blue(fileId)}`
+const noDocumentFoundInFigmaFile = () => `No DOCUMENT found in Figma file`
 
 const unsupportedNodeType = (nodeType: FigmaNode['type']) =>
   `The Figma node type '${nodeType}' is not supported. We currently support 'COMPONENT_SET' node types`
