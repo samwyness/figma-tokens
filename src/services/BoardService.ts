@@ -106,22 +106,7 @@ export default class BoardService {
 
     switch (node.type) {
       case 'COMPONENT_SET':
-        node.children
-          .filter((child) => child.type === 'COMPONENT')
-          .map((child) => {
-            const { name, property } = this.getNodeNameData(child.name)
-            const value = valueCallback(child)
-
-            tokens.push({
-              name,
-              value,
-              groupName,
-              figmaVariantKey: property,
-            })
-          })
-        break
-
-      case 'GROUP':
+      case 'GROUP': {
         node.children.map((child) => {
           const { name, property } = this.getNodeNameData(child.name)
           const value = valueCallback(child)
@@ -134,6 +119,21 @@ export default class BoardService {
           })
         })
         break
+      }
+
+      case 'FRAME':
+      case 'RECTANGLE': {
+        const { name, property } = this.getNodeNameData(node.name)
+        const value = valueCallback(node)
+
+        tokens.push({
+          name,
+          value,
+          groupName: null,
+          figmaVariantKey: property,
+        })
+        break
+      }
 
       default:
         throw new Error(log.messages.unsupportedNodeType(node.type))
