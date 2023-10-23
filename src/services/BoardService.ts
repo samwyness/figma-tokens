@@ -148,22 +148,12 @@ export default class BoardService {
     nodes.map((node) =>
       tokens.push(
         ...this.buildTokenDataFromNode(node, (child) => {
-          let rgbColor: Color | null = null
-          const rectangleChild = child.children.find((_child) => _child.type === 'RECTANGLE')
-
-          if (rectangleChild) {
-            rgbColor = rectangleChild.fills[0].color
-          } else {
-            rgbColor = child.fills[0].color
-          }
-
-          return rgbColor
-            ? `#${ColorConvert.rgb.hex(
-                floatToRgbInt(rgbColor.r),
-                floatToRgbInt(rgbColor.g),
-                floatToRgbInt(rgbColor.b)
-              )}`
-            : '' // Return empty string as default
+          const { color } = child.children[0].fills[0]
+          return `#${ColorConvert.rgb.hex(
+            floatToRgbInt(color.r),
+            floatToRgbInt(color.g),
+            floatToRgbInt(color.b)
+          )}`
         })
       )
     )
