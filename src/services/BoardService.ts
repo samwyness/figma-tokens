@@ -1,12 +1,14 @@
 import chalk from 'chalk'
 import ColorConvert from 'color-convert'
-
 import { TOKEN_FRAME_PREFIX } from '../utils/constants'
+import { logMessages } from '../utils/logMessages'
 import { floatToRgbInt } from '../utils/numbers'
 import { toCamelCase } from '../utils/strings'
 import FigmaApiService from './FigmaApiService'
 import { log } from './LogService'
 import TokenService from './TokenService'
+
+const OUTPUT_TRANSFORM_GROUP_NODES: FigmaNodeType[] = ['COMPONENT_SET', 'GROUP']
 
 export default class BoardService {
   figmaApi: FigmaApiService
@@ -104,24 +106,16 @@ export default class BoardService {
     let tokens: TokenData[] = []
     const groupName = toCamelCase(node.name.toLowerCase())
 
+    if (
+      this.tokensConfig.outputTransform === 'group' &&
+      OUTPUT_TRANSFORM_GROUP_NODES.includes(node.type) == false
+    ) {
+      log.warn(logMessages.unsupportedNodeTypeForGroup(node.type, node.name))
+    }
+
     switch (node.type) {
       case 'COMPONENT_SET':
-        node.children
-          .filter((child) => child.type === 'COMPONENT')
-          .map((child) => {
-            const { name, property } = this.getNodeNameData(child.name)
-            const value = valueCallback(child)
-
-            tokens.push({
-              name,
-              value,
-              groupName,
-              figmaVariantKey: property,
-            })
-          })
-        break
-
-      case 'GROUP':
+      case 'GROUP': {
         node.children.map((child) => {
           const { name, property } = this.getNodeNameData(child.name)
           const value = valueCallback(child)
@@ -134,6 +128,21 @@ export default class BoardService {
           })
         })
         break
+      }
+
+      case 'FRAME':
+      case 'RECTANGLE': {
+        const { name, property } = this.getNodeNameData(node.name)
+        const value = valueCallback(node)
+
+        tokens.push({
+          name,
+          value,
+          groupName: null,
+          figmaVariantKey: property,
+        })
+        break
+      }
 
       default:
         throw new Error(log.messages.unsupportedNodeType(node.type))
