@@ -150,11 +150,19 @@ export default class BoardService {
     nodes.map((node) =>
       tokens.push(
         ...this.buildTokenDataFromNode(node, (child) => {
-          const { color } = child.children[0].fills[0]
+          let rgbColor = child.fills[0].color
+
+          // Add backwards compatibility for previous versions that used a
+          // RECTANGLE child node to determine the token value
+          const rectangleChild = child.children.find((_child) => _child.type === 'RECTANGLE')
+          if (rectangleChild) {
+            rgbColor = rectangleChild.fills[0].color
+          }
+
           return `#${ColorConvert.rgb.hex(
-            floatToRgbInt(color.r),
-            floatToRgbInt(color.g),
-            floatToRgbInt(color.b)
+            floatToRgbInt(rgbColor.r),
+            floatToRgbInt(rgbColor.g),
+            floatToRgbInt(rgbColor.b)
           )}`
         })
       )

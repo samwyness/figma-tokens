@@ -4,19 +4,22 @@ type FigmaNodeType =
   | 'FRAME'
   | 'COMPONENT_SET'
   | 'COMPONENT'
+  | 'GROUP'
   | 'VECTOR'
   | 'RECTANGLE'
   | 'TEXT'
 
+type Color = {
+  r: number
+  g: number
+  b: number
+  a: number
+}
+
 type Paint = {
   blendMode: 'NORMAL'
   type: 'SOLID'
-  color: {
-    r: number
-    g: number
-    b: number
-    a: number
-  }
+  color: Color
 }
 
 type TextStyle = {
