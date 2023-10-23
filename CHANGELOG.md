@@ -1,3 +1,10 @@
+## [2.1.0](https://github.com/skits-lab/figma-tokens/compare/v2.0.0...v2.1.0) (2023-10-23)
+
+
+### :rocket: Features
+
+* **sync:** allow color values to be read from the direct child of a token data node ([#12](https://github.com/skits-lab/figma-tokens/issues/12)) ([4daec0f](https://github.com/skits-lab/figma-tokens/commit/4daec0fee9a2c7848bd2f3fa894a8bf9c53b9958))
+
 ## [2.0.0](https://github.com/skits-lab/figma-tokens/compare/v1.1.1...v2.0.0) (2023-09-26)
 
 
