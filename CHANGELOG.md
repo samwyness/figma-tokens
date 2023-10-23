@@ -1,3 +1,11 @@
+## [2.2.0](https://github.com/skits-lab/figma-tokens/compare/v2.1.0...v2.2.0) (2023-10-23)
+
+
+### :rocket: Features
+
+* **sync:** add support for the node type 'GROUP' when building token data ([#10](https://github.com/skits-lab/figma-tokens/issues/10)) ([29865b8](https://github.com/skits-lab/figma-tokens/commit/29865b83c156c6ad8aeee06bae7cc101b4934e88)), closes [#12](https://github.com/skits-lab/figma-tokens/issues/12) [#12](https://github.com/skits-lab/figma-tokens/issues/12)
+* **sync:** add support for the node types 'FRAME' & 'RECTANGLE' when building token data ([#14](https://github.com/skits-lab/figma-tokens/issues/14)) ([9dfd578](https://github.com/skits-lab/figma-tokens/commit/9dfd578edad1c9d90cbcd403c5ed29ed9e41a424))
+
 ## [2.1.0](https://github.com/skits-lab/figma-tokens/compare/v2.0.0...v2.1.0) (2023-10-23)
 
 
