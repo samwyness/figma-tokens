@@ -102,11 +102,10 @@ export default class BoardService {
     valueCallback: (child: FigmaNode) => string | number
   ) {
     let tokens: TokenData[] = []
+    const groupName = toCamelCase(node.name.toLowerCase())
 
     switch (node.type) {
       case 'COMPONENT_SET':
-        const groupName = toCamelCase(node.name.toLowerCase())
-
         node.children
           .filter((child) => child.type === 'COMPONENT')
           .map((child) => {
@@ -122,20 +121,19 @@ export default class BoardService {
           })
         break
 
-      // TODO: handle 'COMPONENT' node types
-      // case 'COMPONENT':
-      //   node.children.map((child) => {
-      //     const { name, property } = this.getNodeNameData(child.name)
-      //     const value = valueCallback(child)
+      case 'GROUP':
+        node.children.map((child) => {
+          const { name, property } = this.getNodeNameData(child.name)
+          const value = valueCallback(child)
 
-      //     tokens.push({
-      //       name,
-      //       value,
-      //       groupName: null,
-      //       figmaVariantKey: property,
-      //     })
-      //   })
-      //   break
+          tokens.push({
+            name,
+            value,
+            groupName,
+            figmaVariantKey: property,
+          })
+        })
+        break
 
       default:
         throw new Error(log.messages.unsupportedNodeType(node.type))
@@ -150,12 +148,22 @@ export default class BoardService {
     nodes.map((node) =>
       tokens.push(
         ...this.buildTokenDataFromNode(node, (child) => {
-          const { color } = child.children[0].fills[0]
-          return `#${ColorConvert.rgb.hex(
-            floatToRgbInt(color.r),
-            floatToRgbInt(color.g),
-            floatToRgbInt(color.b)
-          )}`
+          let rgbColor: Color | null = null
+          const rectangleChild = child.children.find((_child) => _child.type === 'RECTANGLE')
+
+          if (rectangleChild) {
+            rgbColor = rectangleChild.fills[0].color
+          } else {
+            rgbColor = child.fills[0].color
+          }
+
+          return rgbColor
+            ? `#${ColorConvert.rgb.hex(
+                floatToRgbInt(rgbColor.r),
+                floatToRgbInt(rgbColor.g),
+                floatToRgbInt(rgbColor.b)
+              )}`
+            : '' // Return empty string as default
         })
       )
     )
