@@ -1,12 +1,14 @@
 import chalk from 'chalk'
 import ColorConvert from 'color-convert'
-
 import { TOKEN_FRAME_PREFIX } from '../utils/constants'
+import { logMessages } from '../utils/logMessages'
 import { floatToRgbInt } from '../utils/numbers'
 import { toCamelCase } from '../utils/strings'
 import FigmaApiService from './FigmaApiService'
 import { log } from './LogService'
 import TokenService from './TokenService'
+
+const OUTPUT_TRANSFORM_GROUP_NODES: FigmaNodeType[] = ['COMPONENT_SET', 'GROUP']
 
 export default class BoardService {
   figmaApi: FigmaApiService
@@ -103,6 +105,13 @@ export default class BoardService {
   ) {
     let tokens: TokenData[] = []
     const groupName = toCamelCase(node.name.toLowerCase())
+
+    if (
+      this.tokensConfig.outputTransform === 'group' &&
+      OUTPUT_TRANSFORM_GROUP_NODES.includes(node.type) == false
+    ) {
+      log.warn(logMessages.unsupportedNodeTypeForGroup(node.type, node.name))
+    }
 
     switch (node.type) {
       case 'COMPONENT_SET':
